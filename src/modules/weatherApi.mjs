@@ -19,7 +19,7 @@ function formatQuery(query) {
     .replaceAll(regex.spaceBetweenWords, '%20');
 }
 
-async function getWeatherData(url) {
+async function fetchWeatherData(url) {
   const response = await fetch(url, { mode: 'cors' });
   return await getJsonData(response);
 }
@@ -28,4 +28,4 @@ function getJsonData(data) {
   return data.json();
 }
 
-export { getFormatUrl, getWeatherData };
+export { getFormatUrl, fetchWeatherData };

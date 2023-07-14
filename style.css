@@ -11,16 +11,10 @@
 }
 
 :root {
-  --night-gradient: linear-gradient(to bottom, #001a29 50%, #03141f, #014569);
-  --day-gradient: linear-gradient(
-    to bottom,
-    #0f7edf 50%,
-    #0887d6,
-    #05aff2,
-    #41c4f8
-  );
+  --night-gradient: linear-gradient(to bottom, #001a29 60%, #03141f, #014569);
+  --day-gradient: linear-gradient(to bottom, #0f7edf 60%, #0887d6, #41c4f8);
   --sunrise-gradient: linear-gradient(to bottom, #7ca1d1 60%, #ad9cc0, #e3aea8);
-  --sunset-gradient: linear-gradient(to bottom, #2593a0 60%, #acc1c7 , #ffb6a3 );
+  --sunset-gradient: linear-gradient(to bottom, #2593a0 60%, #acc1c7, #ffb6a3);
 }
 
 body {
@@ -28,16 +22,17 @@ body {
   flex-direction: column;
   min-width: 100vw;
   min-height: 100vh;
-  background-image: var(--sunrise-gradient);
+  background-image: var(--day-gradient);
 }
 
 .nav {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
   gap: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: .5rem;
   width: 1500px;
   max-width: 100%;
   margin-inline: auto;
@@ -124,6 +119,10 @@ svg {
   padding: 0 1rem;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .section {
   margin-inline: auto;
   width: 1500px;
@@ -131,10 +130,11 @@ svg {
   color: white;
 }
 
-.first {
+.first_section {
   display: flex;
   width: 1000px;
-  flex: .5;
+  flex: 0.5;
+  padding-top: 1rem;
 }
 
 .current {
@@ -154,12 +154,14 @@ svg {
 
 .section .weather_info_temperature {
   position: relative;
+}
+
+.section .weather_info_temperature #temp {
   font-size: 5rem;
 }
 
-.section .weather_info_temperature span,
-.section .weather_info_temperature sup
- {
+.section .weather_info_temperature .symbol_container,
+.section .weather_info_temperature sup {
   position: absolute;
   top: 0;
   margin-left: 0.2rem;
@@ -172,7 +174,11 @@ svg {
   margin-bottom: 0.5rem;
 }
 
-.second {
+.section .weather_info_status .max {
+  margin-right: .1rem;
+}
+
+.second_section {
   display: flex;
   align-items: center;
   flex: 1.5;
@@ -182,38 +188,37 @@ svg {
 .more_information {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: .5rem;
+  gap: 0.5rem;
   flex: 1;
   flex-basis: 300px;
   margin-bottom: 2rem;
 }
 
-.wind_info, .sun_info, .infos {
-  border-radius: .5rem;
+.wind_info,
+.sun_info,
+.infos {
+  border-radius: 0.5rem;
   background-color: #e9dede42;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.295);
   padding: 1rem;
 }
 
-.wind_info, .sun_info {
+.wind_info,
+.sun_info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
 }
 
-.wind_info div span, .sun_info div span {
-  margin-left: .5rem;
-}
-
-.left_info {
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
+.wind_info div span,
+.sun_info div span {
+  margin-left: 0.5rem;
 }
 
 .left_info div {
   color: #ffffffbb;
+  margin-bottom: .5rem;
 }
 
 .infos {
@@ -228,11 +233,11 @@ svg {
   align-items: center;
   height: fit-content;
   border-bottom: 1px solid rgba(255, 255, 255, 0.24);
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
 }
 
 .info_item + .info_item {
-   margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .info_item .item_name {
@@ -256,15 +261,16 @@ svg {
 .forecast .card {
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
   flex: 1;
   background-color: #ddd9d93d;
-  border-radius: .5rem;
-  padding:  1rem .5rem;
+  border-radius: 0.5rem;
+  padding: 1rem 0.5rem;
   box-shadow: 1px 3px 5px #0000003f;
 }
 
 .forecast .card .day {
+  margin-left: .5rem;
   font-size: 1.1rem;
   flex: 1;
 }
@@ -281,6 +287,35 @@ svg {
   margin: -10px -10px -15px -10px;
 }
 
+.animation {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  background-color: #ffffff27;
+  padding: .2rem;
+  border-radius: .5rem;
+  color: white;
+  margin-inline: auto;
+  margin-bottom: .5rem;
+}
+
+.loading {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border-left: 2px solid #ffffff;
+  border-top: 2px solid #fff;
+  animation: spin .8s infinite linear;
+}
+
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 @media screen and (max-width: 1000px) {
   .forecast {
     flex-direction: column;
@@ -292,9 +327,9 @@ svg {
     font-size: 15px;
   }
 
-  .first {
+  .first_section {
     flex-direction: column;
-  } 
+  }
 
   .current {
     display: flex;

@@ -16,121 +16,70 @@
         </div>
           <button class="toggle-unit">ºC</button>
     </div>
-    <div class="main">
-      <div class="section first">
+    <div class="animation hidden">
+            fetching data
+            <div class="loading"></div>
+    </div>
+    <div class="main hidden">
+      <div class="section first_section">
           <div class="current">
-            <div class="weather_info_city">Passa Tempo</div>
-            <div class="weather_info_country">Brazil</div>
-            <div class="weather_info_temperature">
-              14
-              <span>º<sup>c</sup></span></div>
-            <div class="weather_info_status">
-              <span class="condition">Clear</span>
-              <div>
-                <span class="max">27º</span>
-                <span>/</span>
-                <span class="min">11º</span>
-              </div>
-            </div>
-            <span>08:09 AM</span>
           </div>
           <div class="more_information">
             <div class="wind_info">
               <div class="left_info">
                 <div>Wind Direction</div>
-                  <span>North</span>
+                  <span id="wind_dir"></span>
               </div>
               <div class="left_info">
                 <div>Wind speed</div>
-                  <span>9.4km/h</span>
+                  <span id="wind_kph"></span>
+                  km/h
               </div>
             </div>
             <div class="infos">
               <div class="info_item">
-                <span class="item_name">Humidity</span>
-                <span>33%</span>
+                <div class="item_name">Humidity</div>
+                <span id="humidity"></span>
+                %
               </div>
-
               <div class="info_item">
-                <span class="item_name">Real feel</span>
-                <span>28º</span>
+                <div class="item_name">Real feel</div>
+                <span id="feelslike" class="current_unit"></span>
+                º
               </div>
                <div class="info_item">
-                <span class="item_name">UV</span>
-                <span>28º</span>
+                <div class="item_name">UV</div>
+                <span id="uv"></span>
               </div>
                <div class="info_item">
-                <span class="item_name">Pressure</span>
-                <span>28º</span>
+                <div class="item_name">Pressure</div>
+                <span id="pressure_mb"></span>
+                mb
               </div>
                <div class="info_item">
-                <span class="item_name">Chance of rain</span>
-                <span>28º</span>
+                <div class="item_name">Chance of rain</div>
+                <span id="daily_chance_of_rain"></span>
+                %
               </div>
                <div class="info_item">
-                <span class="item_name">Moon phase</span>
-                <span>28º</span>
+                <div class="item_name">Moon phase</div>
+                <span id="moon_phase"></span>
               </div>
             </div>
             <div class="sun_info">
               <div class="left_info">
                 <div>Sunrise</div>
-                 <span>06:35 AM</span>
+                 <span id="sunrise"></span>
               </div>
              <div class="left_info">  
               <div>Sunset</div>
-              <span>17:33 PM</span>
+              <span id="sunset"></span>
              </div>
-              
             </div>
           </div>
       </div>
-      <div class="section second">
+      <div class="section second_section">
         <div class="forecast">
-          <div class="card">
-              <i><img src="icons/day/113.png" alt=""></i>
-              <span class="day">Today</span>
-              <div class="max_min">
-                <span class="max">27º</span>
-                  <span>/</span>
-                  <span class="min">11º</span>
-              </div>
-            </div>
-             <div class="card">
-              <i><img src="icons/day/113.png" alt=""></i>
-              <span class="day">Today</span>
-              <div class="max_min">
-                <span class="max">27º</span>
-                  <span>/</span>
-                  <span class="min">11º</span>
-              </div>
-            </div>
-            <div class="card">
-              <i><img src="icons/day/113.png" alt=""></i>
-              <span class="day">Today</span>
-              <div class="max_min">
-                <span class="max">27º</span>
-                  <span>/</span>
-                  <span class="min">11º</span>
-              </div>
-            </div>
-            <div class="card">
-              <i><img src="icons/day/113.png" alt=""></i>
-              <span class="day">Today</span>
-              <div class="max_min">
-                <span class="max">27º</span>
-                  <span>/</span>
-                  <span class="min">11º</span>
-              </div>
-            </div>
-            <div class="card">
-              <i><img src="icons/day/113.png" alt=""></i>
-              <span class="day">Today</span>
-              <div class="max_min">
-                <span class="max">27º</span>
-                  <span>/</span>
-                  <span class="min">11º</span>
-              </div>
             </div>
             </div>
           </div>

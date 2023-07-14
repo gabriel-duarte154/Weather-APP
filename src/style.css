@@ -15,6 +15,9 @@
   --day-gradient: linear-gradient(to bottom, #0f7edf 60%, #0887d6, #41c4f8);
   --sunrise-gradient: linear-gradient(to bottom, #7ca1d1 60%, #ad9cc0, #e3aea8);
   --sunset-gradient: linear-gradient(to bottom, #2593a0 60%, #acc1c7, #ffb6a3);
+  --bg-color: #ddd9d93d;
+  --focus: #ffffff3a;
+  --shadow: 1px 2px 5px rgba(0, 0, 0, 0.315);
 }
 
 body {
@@ -41,11 +44,11 @@ body {
 .search_container {
   display: flex;
   position: relative;
-  background-color: #ddd9d93d;
+  background-color: var(--bg-color);
   border: 1px solid #ffffff85;
   border-radius: 0.5rem;
   min-height: 32px;
-  box-shadow: 1px 3px 5px #0000003f;
+  box-shadow: var(--shadow);
   flex: 0 1 500px;
 }
 
@@ -66,7 +69,7 @@ input {
 
 input:focus {
   outline: none;
-  background-color: #ffffff3a;
+  background-color: var(--focus);
 }
 
 input::placeholder {
@@ -80,15 +83,11 @@ input::placeholder {
   cursor: pointer;
   color: white;
   font-weight: 600;
-  background-color: #ffffff3d;
+  background-color: var(--bg-color);
   font-size: 1rem;
   transition: opacity 0.5s;
   min-height: 32px;
-  box-shadow: 1px 3px 5px #0000003f;
-}
-
-.toggle-unit:focus {
-  outline: 1px solid white;
+  box-shadow: var(--shadow);
 }
 
 .toggle-unit:hover {
@@ -198,8 +197,8 @@ svg {
 .sun_info,
 .infos {
   border-radius: 0.5rem;
-  background-color: #e9dede42;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.295);
+  background-color: var(--bg-color);
+  box-shadow: var(--shadow);
   padding: 1rem;
 }
 
@@ -245,13 +244,6 @@ svg {
   color: #ffffffbb;
 }
 
-.gb {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-
 .forecast {
   flex: 1;
   display: flex;
@@ -263,10 +255,10 @@ svg {
   align-items: center;
   gap: 0.5rem;
   flex: 1;
-  background-color: #ddd9d93d;
+  background-color: var(--bg-color);
   border-radius: 0.5rem;
   padding: 1rem 0.5rem;
-  box-shadow: 1px 3px 5px #0000003f;
+  box-shadow: var(--shadow);
 }
 
 .forecast .card .day {
@@ -291,7 +283,7 @@ svg {
   display: flex;
   align-items: center;
   gap: .5rem;
-  background-color: #ffffff27;
+  background-color: var(--bg-color);
   padding: .2rem;
   border-radius: .5rem;
   color: white;

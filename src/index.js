@@ -1,21 +1,37 @@
 import * as WeatherAPi from './modules/weatherApi.mjs';
 import weatherIcons from './weather/weather.json';
+import './style.css';
+const input = document.querySelector('input');
 let current_unit = 'c';
 let current_data;
 
 async function search(query) {
   if (!query) return;
-
   sartLoadAnimation();
+  await WeatherAPi.fetchWeatherData(query).then((data) => {
+    if (data.hasOwnProperty('error')) {
+      handleError(data);
+      return;
+    }
+    setData(WeatherAPi.getNecessaryData(data));
+    init();
+  });
+  finishedLoadAnimation();
+}
 
-  const url = WeatherAPi.getFormatUrl(query);
-  const data = await WeatherAPi.fetchWeatherData(url);
-  setData(data);
+function init() {
   generatePage();
   setTheme();
   addCovertEvent();
   showPage();
-  finishedLoadAnimation();
+  convertCurrentUnits();
+  convertForecastUnits();
+}
+
+function handleError(errorObj) {
+  const span = document.querySelector('.error');
+  span.classList.add('active');
+  span.textContent = errorObj.error.message;
 }
 
 function sartLoadAnimation() {
@@ -33,7 +49,6 @@ function setData(data) {
 }
 
 function getInputValue() {
-  const input = document.querySelector('input');
   return input.value;
 }
 
@@ -320,7 +335,23 @@ function setTheme() {
   }
 }
 
-window.addEventListener('keydown', captureEnter);
+input.addEventListener('input', removeErrorMsg);
+input.addEventListener('focus', addEnterEvent);
+input.addEventListener('blur', removeEnterEvent);
+
+function addEnterEvent() {
+  window.addEventListener('keydown', captureEnter);
+}
+
+function removeEnterEvent() {
+  window.removeEventListener('keydown', captureEnter);
+}
+
+function removeErrorMsg() {
+  const span = document.querySelector('input + span');
+  span.classList.remove('active');
+  span.textContent = '';
+}
 
 function captureEnter(e) {
   if (e.key === 'Enter') {

@@ -1,5 +1,5 @@
 const weather_free_key = '642bc0610f0b4660af3133343231007';
-const weather_api_url = `https://api.weatherapi.com/v1/forecast.json?key=${weather_free_key}&days=5&q=query_value`;
+const weather_api_url = `https://api.weatherapi.com/v1/forecast.json?key=${weather_free_key}&days=2&q=query_value`;
 
 const wind_direction = {
   N: 'North',

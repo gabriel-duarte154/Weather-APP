@@ -1,5 +1,5 @@
 const weather_free_key = '642bc0610f0b4660af3133343231007';
-const weather_api_url = `https://api.weatherapi.com/v1/forecast.json?key=${weather_free_key}&days=2&q=query_value`;
+const weather_api_url = `https://api.weatherapi.com/v1/forecast.json?key=${weather_free_key}&days=3&q=query_value`;
 
 const wind_direction = {
   N: 'North',
@@ -106,26 +106,6 @@ function getNecessaryData(data) {
           mintemp_c: data.forecast.forecastday[2].day.mintemp_c,
           mintemp_f: data.forecast.forecastday[2].day.mintemp_f,
           date: data.forecast.forecastday[2].date,
-        },
-        {
-          condition: {
-            code: data.forecast.forecastday[3].day.condition.code,
-          },
-          maxtemp_c: data.forecast.forecastday[3].day.maxtemp_c,
-          maxtemp_f: data.forecast.forecastday[3].day.maxtemp_f,
-          mintemp_c: data.forecast.forecastday[3].day.mintemp_c,
-          mintemp_f: data.forecast.forecastday[3].day.mintemp_f,
-          date: data.forecast.forecastday[3].date,
-        },
-        {
-          condition: {
-            code: data.forecast.forecastday[4].day.condition.code,
-          },
-          maxtemp_c: data.forecast.forecastday[4].day.maxtemp_c,
-          maxtemp_f: data.forecast.forecastday[4].day.maxtemp_f,
-          mintemp_c: data.forecast.forecastday[4].day.mintemp_c,
-          mintemp_f: data.forecast.forecastday[4].day.mintemp_f,
-          date: data.forecast.forecastday[4].date,
         },
       ],
     },

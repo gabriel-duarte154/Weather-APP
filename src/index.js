@@ -13,6 +13,7 @@ async function search(query) {
       handleError(data);
       return;
     }
+    console.log(data);
     setData(WeatherAPi.getNecessaryData(data));
     init();
   });
